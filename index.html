@@ -1,0 +1,236 @@
+<div class="percent-tool">
+
+    <p class="desc">Rellene dos valores.</p>
+
+    <div class="formula-wrap">
+
+        <input type="number" id="p1">
+
+        <span>% de</span>
+
+        <input type="number" id="n1">
+
+        <span>=</span>
+
+        <input type="text" id="r1" readonly>
+
+    </div>
+
+    <div class="button-wrap">
+
+        <button class="btn-calc" onclick="calc1()">
+            Calcular
+        </button>
+
+        <button class="btn-clear" onclick="clear1()">
+            Limpiar
+        </button>
+
+    </div>
+
+    <p class="example">
+        Ejemplo: 15 % de 200 = 30
+    </p>
+
+</div>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #f3f4f6;
+        padding: 24px;
+        font-family: Arial, sans-serif;
+    }
+
+    .percent-tool {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 30px;
+    }
+
+    .desc {
+        font-size: 18px;
+        color: #4b5563;
+        margin-bottom: 24px;
+    }
+
+    .formula-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+    }
+
+    .formula-wrap span {
+        font-size: 22px;
+        color: #111827;
+        font-weight: 500;
+    }
+
+    .formula-wrap input {
+        height: 52px;
+        min-width: 140px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        padding: 12px 14px;
+        font-size: 18px;
+        background: #fff;
+    }
+
+    #r1 {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .button-wrap {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .button-wrap button {
+        border: none;
+        border-radius: 6px;
+        padding: 14px 28px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn-calc {
+        background: #4464b2;
+    }
+
+    .btn-clear {
+        background: #2ea8e6;
+    }
+
+    .button-wrap button:hover {
+        opacity: 0.92;
+    }
+
+    .example {
+        font-size: 18px;
+        color: #111827;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+
+        .percent-tool {
+            padding: 22px;
+        }
+        .desc,
+        .example {
+            font-size: 16px;
+        }
+
+        .formula-wrap {
+            gap: 12px;
+        }
+
+        .formula-wrap span {
+            font-size: 18px;
+        }
+
+        .formula-wrap input {
+            height: 48px;
+            font-size: 16px;
+            min-width: 120px;
+        }
+
+        .button-wrap button {
+            font-size: 16px;
+            padding: 12px 20px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+
+        body {
+            padding: 12px;
+        }
+
+        .percent-tool {
+            padding: 18px;
+        }
+
+        .desc,
+        .example {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .formula-wrap {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .formula-wrap span {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .formula-wrap input {
+            width: 100%;
+            min-width: 100%;
+            height: 46px;
+            font-size: 15px;
+        }
+
+        .button-wrap {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button-wrap button {
+            width: 100%;
+            font-size: 15px;
+            padding: 12px;
+        }
+    }
+</style>
+
+<script>
+
+    function calc1() {
+
+        let p =
+            parseFloat(document.getElementById('p1').value);
+
+        let n =
+            parseFloat(document.getElementById('n1').value);
+
+        if (!isNaN(p) && !isNaN(n)) {
+
+            document.getElementById('r1').value =
+                ((p / 100) * n).toFixed(2);
+        }
+    }
+
+    function clear1() {
+
+        document.getElementById('p1').value = '';
+
+        document.getElementById('n1').value = '';
+
+        document.getElementById('r1').value = '';
+    }
+
+</script>
